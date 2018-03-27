@@ -260,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 455545886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalScale: {x: 200, y: 1, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -306,14 +306,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b7064a5688845e496a32cab5a3d44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 100
-  mapHeight: 100
+  drawMode: 1
+  mapWidth: 200
+  mapHeight: 200
   noiseScale: 19
   octaves: 6
   persistance: 0.355
-  lacunarity: 4.39
-  seed: 27
+  lacunarity: 2.44
+  seed: 184
   offset: {x: -3.24, y: -5.28}
+  regions:
+  - name: Water
+    height: 0.3
+    color: {r: 0, g: 0.2965517, b: 1, a: 0}
+  - name: Land
+    height: 0.5
+    color: {r: 0.029665278, g: 0.8602941, b: 0, a: 0}
+  - name: MountainLow
+    height: 0.8
+    color: {r: 0.5514706, g: 0.23960446, b: 0, a: 0}
+  - name: MountainHigh
+    height: 1
+    color: {r: 1, g: 1, b: 1, a: 0}
   autoUpdate: 1
 --- !u!114 &1255640037
 MonoBehaviour:
