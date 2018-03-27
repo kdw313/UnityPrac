@@ -8,7 +8,8 @@ public class MapGenerator : MonoBehaviour {
 	public enum DrawMode
 	{
 		NoiseMap,
-		ColorMap
+		ColorMap,
+		MeshMap
 	};
 
 	public DrawMode drawMode;
@@ -24,6 +25,9 @@ public class MapGenerator : MonoBehaviour {
 
 	public int seed;
 	public Vector2 offset;
+
+	public float meshHeightMultiplier;
+	public AnimationCurve meshHeightCurve;
 
 	public TerrainType[] regions;
 
@@ -58,10 +62,12 @@ public class MapGenerator : MonoBehaviour {
 		// drawing
 		MapDisplay display = FindObjectOfType<MapDisplay> ();
 
-		if(drawMode == DrawMode.NoiseMap)
-			display.DrawTexture (TextureGenerator.TextureFromHeightMap(noiseMap));
+		if (drawMode == DrawMode.NoiseMap)
+			display.DrawTexture (TextureGenerator.TextureFromHeightMap (noiseMap));
 		else if (drawMode == DrawMode.ColorMap)
-			display.DrawTexture (TextureGenerator.TextureFromColorMap(colorMap, mapWidth, mapHeight));
+			display.DrawTexture (TextureGenerator.TextureFromColorMap (colorMap, mapWidth, mapHeight));
+		else if (drawMode == DrawMode.MeshMap)
+			display.DrawMesh (MeshGenerator.GenerateTerrainMesh (noiseMap, meshHeightMultiplier, meshHeightCurve), TextureGenerator.TextureFromColorMap (colorMap, mapWidth, mapHeight));
 	}
 
 
