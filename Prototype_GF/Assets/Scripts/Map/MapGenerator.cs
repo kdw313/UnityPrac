@@ -17,7 +17,8 @@ public class MapGenerator : MonoBehaviour {
 	// Limit: <= 255^2 
 	// The actual limit is 65535 vertices (256^2 -1), 
 	// but 255^2 is the most we can have if our map is square.
-	public int mapChunkSize = 241;
+	public const int mapChunkSize = 241;
+
 	// 1 for no simplification, < 1 to simplification
 	[Range(1,6)]
 	public int levelOfDetail;
