@@ -21,7 +21,7 @@ public static class TextureGenerator {
 		int width = heightMap.GetLength (0);
 		int height = heightMap.GetLength (1);
 
-		Texture2D texture = new Texture2D (width, height);
+		// Texture2D texture = new Texture2D (width, height);
 
 		/**FYI: faster to generate all color and set them
 		 	   in a same time
