@@ -16,6 +16,8 @@ public class MapGenerator : MonoBehaviour {
 
 	public DrawMode drawMode;
 
+	public Noise.NormalizeMode normalizeMode;
+
 	// Limit: <= 255^2 
 	// The actual limit is 65535 vertices (256^2 -1), 
 	// but 255^2 is the most we can have if our map is square.
@@ -114,7 +116,7 @@ public class MapGenerator : MonoBehaviour {
 			
 
 	MapData GenerateMapData(Vector2 centre){
-		float[,] noiseMap = Noise.GenerateNoiseMap (mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, centre + offset);
+		float[,] noiseMap = Noise.GenerateNoiseMap (mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, centre + offset, normalizeMode);
 
 		Color[] colorMap = new Color[mapChunkSize * mapChunkSize];
 
@@ -124,8 +126,10 @@ public class MapGenerator : MonoBehaviour {
 				float currentHeight = noiseMap [x, y];
 
 				for (int i = 0; i < regions.Length; i++) {
-					if (currentHeight <= regions [i].height) {
+					//signing color
+					if (currentHeight >= regions [i].height) {
 						colorMap [y * mapChunkSize + x] = regions [i].color;
+					} else {
 						break;
 					}
 				}
