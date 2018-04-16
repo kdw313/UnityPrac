@@ -35,7 +35,9 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 			InputDirection = (InputDirection.magnitude > 1) ? InputDirection.normalized : InputDirection;
 			jsImg.rectTransform.anchoredPosition = new Vector3(InputDirection.x * (bgImg.rectTransform.sizeDelta.x / 3)
 				, InputDirection.z * (bgImg.rectTransform.sizeDelta.y / 3));
-			print (InputDirection.x + ", " + InputDirection.y + ", " + InputDirection.z );
+			
+			print ("Dir Vect: " + InputDirection.x + ", " + InputDirection.y + ", " + InputDirection.z );
+
 		}
 	}
 
@@ -49,4 +51,5 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 		InputDirection = Vector3.zero;
 		jsImg.rectTransform.anchoredPosition = Vector3.zero;
 	}
+
 }
