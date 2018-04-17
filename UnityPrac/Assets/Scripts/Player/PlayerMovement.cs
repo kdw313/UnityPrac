@@ -14,6 +14,7 @@ public class PlayerMovement:MonoBehaviour {
 
 	int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
 	float camRayLength = 100f;          // The length of the ray from the camera into the scene.
+	float accumMovingTime;
 
 	Animator anim;                      // Reference to the animator component.
 
@@ -21,6 +22,7 @@ public class PlayerMovement:MonoBehaviour {
 	void Awake()
 	{
 		playerRigidbody = GetComponent <Rigidbody> ();
+		accumMovingTime = 0.0f;
 	}
 
 	void FixedUpdate()
@@ -33,6 +35,7 @@ public class PlayerMovement:MonoBehaviour {
 		Turning (h, v);
 
 		Animating (h, v);
+
 	}
 
 	void Move (float h, float v)
@@ -41,6 +44,9 @@ public class PlayerMovement:MonoBehaviour {
 
 		moveDirection = moveDirection.normalized * speed * Time.deltaTime;
 
+		//if (anim.GetBool ("IsRunning"))
+
+		
 		playerRigidbody.MovePosition (transform.position + moveDirection);
 	}
 
