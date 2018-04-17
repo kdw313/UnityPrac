@@ -2048,8 +2048,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transPlayerCharacter: {fileID: 225950415}
+  crossHead: {fileID: 1533575000}
   fireButton: {fileID: 1744077813}
   skills: []
+  timer: 0
 --- !u!1 &595956679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,8 +4438,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transPlayerCharacter: {fileID: 225950415}
+  crossHead: {fileID: 0}
   fireButton: {fileID: 0}
   skills: []
+  timer: 0
 --- !u!1 &1487127859
 GameObject:
   m_ObjectHideFlags: 0
@@ -4786,7 +4790,7 @@ GameObject:
   - component: {fileID: 1533575001}
   - component: {fileID: 1533575000}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CrossHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
