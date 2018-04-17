@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class VirtualButtons: MonoBehaviour {
 
 	public Transform transPlayerCharacter;
+	public Image crossHead;
 	public Button fireButton;
 	public Button[] skills;
+
+	//TODO: debuging purpose, needed to be protected.
 	public float timer;
 
 	int numOfBullet;
@@ -41,11 +44,16 @@ public class VirtualButtons: MonoBehaviour {
 	public void FireOnDown()
 	{
 		fireButtonClicked = true;
+
+		crossHead.color = new Color32 (255, 0, 0, 100);
 	}
 
 	public void FireOnUp()
 	{
 		fireButtonClicked = false;
+
+		crossHead.color = new Color32 (255, 255, 255, 100);
+
 	}
 
 }
